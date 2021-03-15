@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN"	
+              "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<!-- (c) by Dieter Herrmann, Digital Imaging and Photonics (DIP), 
+         Dresden 2013-05-30 -->
+
+<svg id="ColorCube" width="100%" height="100%"  viewBox = "-180 -180  360 360" 
+     xmlns="http://www.w3.org/2000/svg" version="1.0"
+     xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+<title>Color Cube in Perspektiv Projektion </title>
+<desc >Color Cube in Perspektiv Projektion </desc>
+
+<rect id="canvas" x="-170" y="-170" width="340" height="340" rx="20" ry="20"
+          style="fill:rgb(255,255,214); stroke:rgb(064,064,128); stroke-width:1" />
+
+<defs>
+  <style type="text/css"> 
+   <![CDATA[
+     text   {fill:rgb(0,0,0); font-size:16px; font-family:Arial; }
+     line   {fill:none; stroke-width:1.0 }
+     path   {fill:none; stroke:rgb(0,0,255); stroke-width:1.5; }
+     circle {fill:rgb(255,0,128); stroke:rgb(0,0,0); stroke-width:1; } 
+   ]]>
+  </style>
+</defs>
+
+
+<line id="horizontal_x" x1="-106" y1="000"  x2="106" y2="000"
+          style="stroke:rgb(255,020,020); " />
+<line id="vertical_y"   x1="000"  y1="-106" x2="000" y2="106"
+          style="stroke:rgb(000,220,000); " />
+
+
+<g id="Cube" >
+
+<line id="Front_top"    x1="-142" y1="-142"  x2="142" y2="-142"
+          style="stroke:rgb(000,020,020); " />
+<line id="Front_right"  x1="142" y1="-142"   x2="142" y2="142"
+          style="stroke:rgb(000,020,020); " />
+<line id="Front_buttom" x1="142" y1="142"    x2="-142" y2="142"
+          style="stroke:rgb(000,020,020); " />
+<line id="Front_left"   x1="-142" y1="142"   x2="-142" y2="-142"
+          style="stroke:rgb(000,020,020); " />
+
+<circle id="Green" cx="-142" cy="-142" r="14.2" transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(000,255,000);  stroke-width:2; opacity:0.7 " />
+<circle id="Gelb"  cx="142" cy="-142" r="14.2"  transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(255,255,000);  stroke-width:2; opacity:0.7 " />
+<circle id="Rot"   cx="142" cy="142" r="14.2"   transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(255,000,000);   stroke-width:2; opacity:0.7 " />
+<circle id="Kohle" cx="-142" cy="142" r="14.2"  transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(000,000,000);  stroke-width:2; opacity:0.7 " />
+
+<line id="Midl_topleft"   x1="-142" y1="-142"  x2="-71" y2="-71"
+          style="stroke:rgb(000,020,020); " />
+<line id="Midl_topright"  x1="142" y1="-142"  x2="71" y2="-71"
+          style="stroke:rgb(000,020,020); " />
+<line id="Midl_downright" x1="142" y1="142"  x2="71" y2="71"
+          style="stroke:rgb(000,020,020); " />
+<line id="Midl_downleft"  x1="-142" y1="142"  x2="-71" y2="71"
+          style="stroke:rgb(000,020,020); " />
+
+<line id="Back_top"    x1="-71" y1="-71"  x2="71" y2="-71"
+          style="stroke:rgb(000,020,020); " />
+<line id="Back_right"  x1="71" y1="-71"  x2="71" y2="71"
+          style="stroke:rgb(000,020,020); " />
+<line id="Back_buttom" x1="71" y1="71"  x2="-71" y2="71"
+          style="stroke:rgb(000,020,020); " />
+<line id="Back_left"   x1="-71" y1="71"  x2="-71" y2="-71"
+          style="stroke:rgb(000,020,020); " />
+
+<circle id="Cyan"    cx="-71" cy="-71" r="7.07" transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(000,255,255);  stroke-width:1; opacity:0.7 " />
+<circle id="Weiss"   cx="71" cy="-71" r="7.07"  transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(255,255,255);  stroke-width:1; opacity:0.7 " />
+<circle id="Magenta" cx="71" cy="71" r="7.07"   transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(255,000,255);  stroke-width:1; opacity:0.7 " />
+<circle id="Blau"    cx="-71" cy="71" r="7.07"  transform="translate(000, 000)"
+    style="fill:none; stroke:rgb(000,000,255);  stroke-width:1; opacity:0.7 " />
+
+</g>
+
+
+<g id="Comet" >
+  <circle id="Flying_Spot" cx="100" cy="0" r="10"  transform="translate(000, 000)" >
+	<animate id="Color_Circle" attributeName="fill"  
+                 begin="0.500s" dur="6.5s" repeatCount="indefinite"
+                 values="rgb(255,000,255); rgb(000,000,255); rgb(000,255,255); 
+                         rgb(000,255,000); rgb(255,255,000); rgb(255,000,000); 
+                         rgb(255,000,255) "  />
+
+        <animate id="Cx" attributeName="cx" 
+                 begin="0.500s" dur="6.5s" repeatCount="indefinite" 
+                 values="71; -71; -71; -142; 142; 142; 71 " />
+        <animate id="Cy" attributeName="cy" 
+                 begin="0.500s" dur="6.5s" repeatCount="indefinite" 
+                 values="71; 71; -71; -142; -142; 142; 71 " />
+
+        <animate id="Near_Far" attributeName="r" 
+                 begin="0.500s" dur="6.5s" repeatCount="indefinite" 
+                 values="7.07; 7.07; 7.07; 14.2; 14.2; 14.2; 7.07 " />
+  </circle>
+  
+</g>
+
+
+<g id="Text_Abbildung" transform="matrix(1 0 0 1  -100 120)" 
+            style="font-family:Verdana; font-size:12px; fill:black">
+ <text x="0" y="000" >Abbildung: &#160;FarbCube.SVG </text>
+ <text x="0" y="015" style="font-size:09px; "> 
+        (c) Dieter Herrmann / DIP Dresden 30.05.2013 </text>
+</g>
+
+</svg>

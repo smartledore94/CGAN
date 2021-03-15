@@ -1,0 +1,94 @@
+﻿
+Synchronized Multimedia Integration _2D Animationen _geometrisch photometrisch und spektral _Aufgabe _2021-02-16_01
+-------------------------------------------------------------------------------------------------------------------
+
+Ordner, Referenzen, BA File System, Vodafonemail Cloud, w3.org, WWW, SMPTE, Web3D.org, MPEG :
+
+SMIL+XML - Synchronized Multimedia Integration Language (SMIL, pronounced "smile" , W3C Standard ;
+_Mul_Docu_Smil2w3c_animation.html _3 _The SMIL 2-0 Animation Modules ;
+_Mul_Docu_Smil2w3c_smil-timing.html _10 _The SMIL 2-0 Timing and Synchronization Module ;
+_Mul_Docu_Smil2w3c_smil-transitions.html _12 _The SMIL 2-0 Transition Effects Module ;
+_Mul_Docu_Smil2w3c_smil-transitions.html _12 _The SMIL 2-0 Transition Effects Module _12-10 Appendix - Taxonomy Tables _SMPTE 258M-1993 ;
+
+_SMPTE _Society of Motion Picture and Television Engineers ;
+
+Mul_Docu_Smil2w3c.zip ;
+
+Img_Docu, SVG11_11, w3.org, TR_2011_REC-SVG11-20110816, Scalable Vector Graphics (SVG) 1-1 (Second Edition) ; 
+_SVG11_11_REC-SVG11-20110816_animate.html _19 _Animation (Attribute Name - Set - Color - Motion Path - Transform) ;
+
+Ima_Docu_HSL_HSI_.zip ;
+Ima_Medi_RGB_Cmyk.zip ;
+
+Img_Medi_SVG_Poly.zip ;
+Img_Medi_SVG_Path.zip ;
+
+Img_Medi_SVG_Path.zip ;
+Img_Medi_SVG_An13.zip ;
+
+Img_Medi_CSS3Tran.zip ;
+Img_Medi_BarnFarn.zip ;
+Img_Medi_GeoGlyph.zip ;
+
+Img_Tool, Notepad ++, Inkscape, (WebDraw), Ima_Tool, andere ;
+
+-----------------------------------------
+
+Neben dem Orts-Raum und Orts-Frequenzen (space - spatial frequency - wie dpi dots per inch) gibt es synchron dazu den Freuquenz-Raum mit Frequenz-Koeffizienten sowie den Zeit-Raum mit Zeit-Frequenzen (time - temporal frequency - wie fps - frames per second). Multimedia-Objekte ändern also zeitabhängig nicht nur ihre Raum-Position und Orientierung (Posing), sondern auch ihre spektrale Erscheinung. 
+y=f(x) oder v=f(t), Style-Sheets oder Time-Sheets (Time-Line). 
+
+Im SMIL Standard ist die Synchronisation Multimedialer Objekte beispielhaft zusammengefasst, seriell bis parallel, eindimensional bis mehrdimensional, kontinuierlich bis diskontinuierlich, linear bis nicht linear. 
+
+Zeit Attribute und Werte der Time-Sheets (Zeit-Vorlagen, Ablaufsteuerung, zeitliche Änderung, Animation) sind zum Beispiel :
+begin, dur - duration, end, start, stop, play, autoplay, repeat, repeatCount, indefinite, fill, remove, freeze, additive, sum. 
+
+Sie werden auf beliebige Elemente und Eigenschaften angewendet, in unterschiedlichen Systemen, Frameworks oder Engines mit etwas unterschiedlicher Syntax.
+
+-----------------------------------------
+
+Beispiel [ Col_Cube.svg ]
+Der 3D Color Space ist als Würfel perspektivisch dargestellt und ein Flying-Spot durchläuft perspektivisch auf den Kanten den Farbkreis (Hue 360 Grad aus dem HSLA Farb-Modell), ändert dabei seine Position, die Größe und die Farbe.
+
+Aufgabe mit kleineren Modifikationen : 
+Erstellung eines regulären 7-Eck Polygons nativ auf einem UHD Bildschirm in relativen Koordinaten, also frei skalierbar, als Begrenzung des Animations-Raumes.
+[ Polygon _7 Eck in UHD _für Anim _2021-01-18_02_svg _nur Polygon mit Translate _1920x1080px.png ]
+
+Dann Erzeugung einer Endlos-Kurve als 7-eckiger Stern, und Visualisierung des Bewegungs-Pfades.
+[ Polygon _7 Eck in UHD _für Anim _2021-01-18_06_svg _Stern Bewegungs-Pfad _1920x1080px.png ]
+
+Dann ist der Flying Spot zu animieren, der endlos im Ping-Pong den Stern abläuft. 
+
+Da hier zunächst eine Planare Ebene vorliegt, kann die Größe des Flying Spot konstant bleiben. Bei der Bewegung auf oder in einer Kugel würde die dritte Dimension entsprechend z-Koordinate und Raumtiefe angepasst.
+
+Die Farb-Kodierung soll entsprechend dem HSL Farbkreis zumindest über die Eckpunkte synchron zur Position animiert werden. 
+Dazu bietet sich die HSLA Farbkodierung als animation values an (360 Grad / 7). 
+
+Bitte beachten :
+Für periodische Animationen muss der Ent-Wert der animation values dem Start-Wert entsprechen, für zyklische oder periodische Wiederholung. 
+Die animation values über 7 Ecken sind also 7 + 1 = 8 Werte oder Stützstellen. Die animation values sind jeweil durch Semikolon zu trennen. 
+Nach dem letzten End-Wert = Start-Wert darf aber kein Semikolon mehr stehen, Firefox animiert problemlos, Google Chrome aber nicht mit abschließendem Semikolon (wie etwa bei JavaScript). 
+
+Die Beispiele in [ Img_Medi_SVG_An13.zip ] habe ich entsprechend korrigiert. Im entsprechenden BA-Leipzig Ordner sind nach einem Download für Google Chrome die End-Semikolons in den animation values zu entfernen. Bei Firefox läufen die Animationen auch so.
+
+Mikrosoft Browser (IE bis Edge) unterstützen den native SVG-Animation Standard leider nicht und zeigen nur das Startbild als Standbild. 
+Ein Workaround wäre hier ein dynamisches Scripting nach den Eigenarten der jeweiligen Browser.
+
+[ Polygon _7 Eck in UHD _mit Anim _2021-01-18_10_svg _mit Flying Spot in Hue Color _1920x1080px.png ]
+
+-----------------------------------------
+
+Die einzelnen Positionen der Animation lassen sich auch einfrieren und dann geometrisch und pgotometrisch auf Korrektheit prüfen. 
+Die Arbeit beim Testen kann auch in den Zeit-Attributen jeweils optimal angepasst werden, beispielsweise langsam 10 s bis schnell 1 s, auch nach Leistungsfähigkeit der Grafik. 
+Es empfiehlt sich, nicht bei begin="0s" zu starten, sondern bei etwa begin="0.5s". Dann ist die Seite geladen, die eigene Reaktionszeit bereit und man verpasst nicht den korrekten Anfang.
+
+-----------------------------------------
+
+Bei grüner Welle und wenig Berechnugs-Fehlern kann die Übung in 2 Stunden klappen. 
+Mit weitergehenden Experimenten, Korrekturen, Optimierungen, Dokumentation und Vertiefungen können daraus auch 4 Stunden werden. 
+Übung macht den Meister. In der Klausur stehen für eine vergleichbare Animation mit 6 bis 12 (Symmetrie) Stützstellen und Farb-Kodierungen, die richtig in ein vorgegebenes Quelltext-Gerüst einzufügen sind, etwa 10 bis 15 Minuten zur Verfügung. Die Animation ist nach entsprechender Übung mit 2D und 3D sowie Polar-Koordinaten mit Taschenrechner lösbar.
+
+-----------------------------------------
+
+Dieter Herrmann, Dresden, 2021-02-16
+
+-----------------------------------------

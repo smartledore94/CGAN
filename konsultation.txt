@@ -1,0 +1,44 @@
+6 Aufgaben:
+- Begriff
+- Animation
+	-> Stützstellen vorgeben, d.h. Bewegung über Motion Pfad
+	-> Punkte für Videoanimation berechnen
+	-> Aufgabe, die wir hatten, mit anderen Werten
+- affine Transformation 2D
+- Pattern Matching
+- Farbraum, aber nicht 3D
+- Transfer Function 1D
+
+###
+
+- HSL
+- Kreise
+- rechtwinklige Dreiecke
+- affine Transformationen (d.h. Einpassen in Bildschirme)
+
+###
+
+Color Lookup Table:
+- Transformationen, Kompressionen, etc.: 
+	-> jedes technische System ist endlich, das Spektrum der Farben ist aber unendlich
+	-> d.h. minimale & maximale Grenzen
+	-> Rechnen mit 32 Bit oder 64 Bit	
+- endliche Schnittstellen als Referenzpunkte
+- Bspw. Farbwürfel mit 8 Eckpunkten definiert Farbraum mit 8 Punkten
+- Transformation eines Farbraums heißt Transformation der geometrischen Figur
+- geht auch als Sechseck
+- Hinweis: Warum soll ich Werte, die ich immer wieder brauche, ständig wieder kompliziert berechnen?
+	-> Reduzierug der Schnittstellen auf endliche Größe
+	-> Vorausberechnung & Werte in Array speichern
+	-> YCbCr > RGB > HSL
+- Farben des HSL-Farbkreises (im Standard 360 Grad): 360 Farben
+- Farbwürfel: 1560 Farben (bei 8 Bit, d.h. 256 von 0 bis 255)
+	-> beides abwickeln und als Linien nebeneinanderlegen = auf 1D herunterbrechen
+- Primfaktorzerlegung: Welche Werte eines Polarkoordinatensystems (2D) stimmen mit den Werten eines ColorCubes (3D) überein?
+	-> Rundung bringt Ungenauigkeiten; da mit Integers gerechnet werden muss, würde gerundet werden müssen
+	-> PFZ ergibt: durch 5 teilen & nicht durch 6, wie die Stützstellen des Würfels nahelegen
+	-> Farbkreis: 
+- 0 Grad HUE = rot, kein blau, kein grün
+	-> 1/5 auf einem Segment in Richtung grün = 51 Schritt im ColorCube gehen 
+- 12 Grad Polarkoordinaten entsprechen 51 Schritten im ColorCube
+- ColorLookupTable: 6 Eckpunkte des ColorCubes > RGB-Kodierung > d.h. 6 Sektoren mit jeweils 5 Werten

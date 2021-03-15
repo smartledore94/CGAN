@@ -1,0 +1,156 @@
+﻿
+Animationen 2D _geometrisch photometrisch und spektral _Lösungen _2021-02-19_01
+-------------------------------------------------------------------------------
+
+Ordner, Referenzen, BA File System, Vodafonemail Cloud, w3.org, WWW, SMPTE, Web3D.org, MPEG :
+
+Ima_Tool_Farb_GUI.zip ;
+
+https://en.wikipedia.org/wiki/HSL_and_HSV ;
+
+https://www.w3schools.com/colors/colors_hsl.asp ;
+
+5CS18-2_Bruno Kreyßig_2021-02-17 _polygon.svg ;
+
+Polygon7Eck_UHD_Anim_2021-02-19.svg ;
+
+Weitere über 30 Dateien ;
+
+-----------------------------------------
+
+Herzlichen Dank an Bruno Kreyßig für seine Lösung.
+[ 5CS18-2_Bruno Kreyßig_2021-02-17 _polygon.svg ]
+
+Das funktioniert auch erstmal. Insofern prima ! 
+
+Da Sie aber Computer Science Spezialisten sind, ist das noch kein sehr gut. 
+
+Dazu von mir 10 Fehler beziehungsweise Anmerkungen.
+Nicht um die Datei auseinander zu nehmen, sondern einfach, um zu lernen, worauf eigentlich zu achten ist. 
+Auch ich mache genug Fehler. Und es vergeht auch kein Tag, wo nicht Technik, Verbindungen oder Dateien Fehler aufweisen. Ich komme kaum mit Forensik, Fehlerdokumentation und Workarounds hinterher.
+
+_polygon_svg _01 _Falscher Zeichensatz _utf-8 deklariert _aber in ANSI gespeichert _Zeichen Fehler möglich bis Ablehnung ;
+_polygon_svg _02 _id Tags richtig gemeint _aber mehrdeutig und keine GUID _nicht XML well-formed _NOT XML-valid ;
+_polygon_svg _03 _absolut width und heigth _keine viewBox _keine umschreibende Leinwand _nicht automatisch skalierbar ;
+_polygon_svg _04 _gefordert war nativ UHD und frei skalierbar _Realisierung aber nur Full-HD absolut und nicht auto skalierbar ;
+_polygon_svg _05 _nicht im Null-Punkt _keine Symmetrie genutzt 3x2 L-R _kein umschreibender Kreis zur Kontrolle ;
+
+_polygon_svg _06 _Titel und kurze Kommentierung Polygon Punkte und Anim Reihenfolge wären hilfreich _Kontrolle Weiterentwicklung ;
+_polygon_svg _07 _style stroke in einfachen Farb-Namen _schwer und nicht exakt anpassbar im gesamten RGB Farbraum ;
+_polygon_svg _08 _circle fill in hex Farben - prüfen _zur Winkel-Kontrolle HSLA und Hue Position besser geeignet _immer 1 Farbe NULL und 255 ;
+_polygon_svg _09 _Farben im regulären 7-Eck sind nicht nur ungenau (ungleich 00) _sondern auch falsch kodiert ;
+_polygon_svg _10 _animation einzeln mit großem Overhead _aber nicht in gruppierten effektiven values ;
+
+Wenn Virensoftware, Firewall bis Betriebssystem richtig funktionieren, würde die Datei gar nicht erst zugelassen werden und in die Fake Files oder Junk verbannt. In der SVG steht zwar richtig encoding="utf-8" drin, geschrieben oder gespeichert, und damit inkonsistent manipuliert, wurde sie aber in ANSI. 
+
+Wenn man das dann geklärt hat, düfte eigentlich keine Anwendung die Datei ausführen, weil sie ungültig ist und ein korrekter XML-Parser NOT well-formed und NOT valid ausgeben muss. XML ist eigentlich strict und damit müssen auch id Tags ein-eindeutig, also global GUID Identification sein. Da hierüber getElementByID oder getAttributebByID wegen mehrfacher identischer Verwendung nicht eindeutig funktioniert, darf sie eigentlich nicht ausgeführt werden. Weil über 30 Prozent der Intenet Dateien fehlerhaft sind, versuchen die Browser völlig unterschiedlich mit transitional, fehlertolerant bis zur nächsten Fehlerstelle zu sein.
+
+-----------------------------------------
+
+Hinweise zu Lösungsstrategien. 1000 Wege führen natürlich nach Rom. 
+Große Probleme löst man, indem man sie in kleinere zerteilt. Sie können die Aufgabe 1-dimensional, 2-dimensional, 3-dimensional oder auch 4-dimensional lösen. Beipielsweise indem man sich einen Meta-Raum oder Hyper-Cube schafft mit Import und Export Filtern. 
+Das finden Sie auf dem Weg von einer Foto-Copy, über die Soft-Copy auf dem Bildschirm bis zur Hard-Copy im Ausdruck. Daraus macht man dann profitable Eco-Systeme namens Color Management Systeme CMS, die man jedes Jahr neu erfinden kann. 
+
+Oder aktuell ist die Industrie gerade dabei, WebGL zu ersetzen. Dann braucht man für eine einfache Grafik Ausgabe "Hello RGB Triangle" statt 100 Zeilen OpenGL für neues Vulkan über 1000 Zeilen und leistungfähigere Rechner (Vulkan Tutorial en.pdf). 
+
+-----------------------------------------
+
+Es geht auch einfacher. 
+Die Farbkanten des RGB Würfels sowie der Umfang des HSL Farbkreises sind ein geschlossener Linienzug von Rot zu Rot, R-Y-G-C-B-M-R. 
+In HSL sind das 6 Sektoren je 60 Grad linear von 0 Grad bis 360 Grad. Und in RGB sind das 6 Kanten je 255 weitere Farben von insgesamt linear von 0 bis 1530. Beide 1D Linien von 0% bis 100% lassen sich nun über einfachste Verhältnisgleichungen mappen :
+hue(circle) / 360 ° = rgb(cube) / 1530. Da Hue nur 360 Integer hat ist es einfacher aber gleichzeitig völlig verlustreich, weil von RGB 1530-360 = 1170 Farben im Farbkreis verloren gehen und gerade 360 Hue übrig bleiben. Darüber redet natürlich keiner, Hauptsache schön bunt hier ! 
+
+Man kann das Ganze auch Segmentweise berechnen, mit Module 60 ° beziehungsweise Modulo 255. 
+Das lineare Verhältnis wird dann eine einfache Interpolation hue(sector) / 60 ° = rgb(edge) / 255. Beispielsweise bleiben 20 % in beiden Welten zugeordnet, Drehung 12° entsprechen Verschiebung 51 auf der Würfelkante.
+
+Die Schrittweite bei 7 Stützstellen ist einfach delta(hue) = 360°/7 = 51,429 Grad oder delta(rgb) = 1530 / 7 = 218,571 RGB Farben. Obwohl im photometrischen Hue Winkel nur Integer gelten, ist es aber bei hohen Auflösungen mit mehreren 1000 Pixeln und geometrischen Rotationen empfehlenswert, auch auf 1/10.000 genau zu drehen, damit grobe Rundungen nicht zu Fehlersprungstellen führen. 
+
+Für y = m * x + n brauchen wir jetzt nur noch einen Startwert oder Offset n als Nullpunkts-Verschiebung. 
+
+Die Folge 1 bis 7 kann man in SVG im Uhrzeiger Sinn (CW - Clockwise) zählen, von Rot auf der x-Achse über Magenta zu Blau, und so fort. 
+
+Ebenso geht es in Hue Drehrichtung von Rot auf der x-Achse entgegen Uhrzeiger (CCW - Counter Clockwise) über Yellow zu Grün, und so fort. Da 1 Punkt genau auf -y liegt, kann man auch von Nord in CW nach rechts, oder in CCW nach links zählen. 
+
+Hier soll Hue in CW genutzt werden, 1 Orange bis 7 Rot. Der Offset beträgt 90 Grad - delta hue.
+Hue(0) = 360 °/4 - 51,429 ° = 90 ° - 51,429 ° = 38,571 ° ; 
+Hue(i) = i * 51,429 ° + 38,571 ° ;
+
+Hue(0) = 0 * 51,429 ° + 38,571 ° = 38,571 ° ~~ 39°;
+Hue(1) = 1 * 51,429 ° + 38,571 ° = 90,000 ° ;
+Hue(2) = 2 * 51,429 ° + 38,571 ° ;
+Hue(3) = 3 * 51,429 ° + 38,571 ° ;
+Hue(4) = 4 * 51,429 ° + 38,571 ° ;
+Hue(5) = 5 * 51,429 ° + 38,571 ° ;
+Hue(6) = 6 * 51,429 ° + 38,571 ° = 347,145 ° ~~ 347 ° ;
+-------------------------------------------------------
+Hue(7) = 7 * 51,429 ° + 38,571 ° = 398,574 °; 398,574 ° - 360 ° =~ 38,574 ° ~~ 39° ; Kontrolle der Periodizität.
+
+Setzt man nun die hsl(h,s,l) Kodierung und den identischen Rotationswinkel ein, erhält man den richtigen Hue Wert auch gleich in der richtigen Position. 
+
+Der Farb-Komet wird mit cx und cy in die Umlaufbahn gebracht und mit negativem Winkel rotate(-hue, 1920, 1080) um den Nullpunkt cx und cy des Umkreises gedreht. 
+
+-----------------------------------------
+
+Identisch und linear sowie auch noch genauer kann man in RGB rechnen. 
+
+rgb(0) = 1530/4 - 218,571 = 382,500 - 218,571 = 163,929 ~~ 164 ;
+rgb(i) = i * 218,571 + 163,929 ; 
+
+r-y
+rgb(0) = 0 * 218,571 + 163,929 = 163,929 ; 163,929 mod 255 = 163,929 ~~ 164 ;
+y-g
+rgb(1) = 1 * 218,571 + 163,929 = 382,500 ; 382,500 mod 255 = 127,500 ~~ 127 ; 
+y-g
+rgb(2) = 2 * 218,571 + 163,929 ;
+g-c
+rgb(3) = 3 * 218,571 + 163,929 ;
+c-b
+rgb(4) = 4 * 218,571 + 163,929 ;
+b-m
+rgb(5) = 5 * 218,571 + 163,929 ;
+m-r
+rgb(6) = 6 * 218,571 + 163,929 = 1475,355 ; 1475,355 mod 255 = 200,355 ~~ 200 ;
+-------------------------------------------------------------------------------
+r-y
+rgb(7) = 7 * 218,571 + 163,929 = 1693,926 ; 1693,926 - 1530  = 163,926 ~~ 164 ; 
+                                            1693,926 mod 255 = 163,926 ~~ 164 ; Kontrolle der Periodizität.
+
+Wie bei Hue ändert sich bei RGB linear jeweils nur ein einzelner Werte, allerdings in wechselnden Farb-Komponenten und Vorzeichen. Der lineare Farb-Vektor im RGB Color Cube ergibt sich schlicht wie folgt :
+
+R / Y \ G / C \ B / M \ R . 
+Von Red auf zu Yellow, runter zu Green, auf zu Cyan, runter zu Blue, auf zu Magenta bis runter wieder zu Red.
+Also von 0 % Red bis 100 % Red :    R + G - R + B - G + R - B = R .
+
+Bei den Farben auf den Würfel Kanten ist immer eine Komponente genau NULL, eine andere immer MAX und nur eine Größe folgt vom Offset mit fortlaufenden Schrittweiten. 
+Da wir bei Rot mit rgb(255,0,0) beginnen, und der Offset 164 beträgt, wird zunächst Grün um 164 erhöht. 
+R
+rgb(255,164,0) ;
+Y
+rgb(127,255,0) ;
+
+Die allermeisten Color Picker und Color Converter liefern aus verschiedenen Gründen leicht falsche, völlig falsche oder eigensinnige, nicht standardgerechte Werte. 
+[ Ima_Tool_Farb_GUI.zip ] 
+
+Farbraum Transformation sowie Medien Kompression sind Black Magic. Und jede Implementierung bringt je nach Rechenweg unterschiedliche Ergebnisse. Mathematisch würde es fehlerfrei gehen, Rechenaufwand und Genaugkeit sind aber unterschiedlich begrenzt, und Implementierungen oft fehlerfaft. 80 verschiedene Browser-Versionen sind gleichzeitig 80 verschiedene Fehlproduktionen. An der grundlegenden Geometrie und Mathematik hat sich seit den letzten 500 Jahren kaum etwas geändert. Oder die neuesten HDMI 2.x Implementierungen sind das blanke Chaos und Kompatibilität Glückssache. 
+
+y = m * x + n oder hue(sector) / 60 ° = rgb(edge) / 255 ist ebenso einfach wie etwa DEG in RAD umrechnen. 
+Bei Verwendung von fremden Offline wie Online Convertern müssen diese ernsthaft vorher geprüft werden.
+
+Im Vergleich zu w3schools.com unterscheiden sich die Werte um 1 oder 2 dezimale Farben, zum Beispiel je nach Rundung wie 127,5.
+
+[ https://www.w3schools.com/colors/colors_hsl.asp ] ;
+
+-----------------------------------------
+
+Meine Lösung ist noch etwas erweitert. Sie zeigt die Farb-Eckpunkte in HSL Kreisen und RGB Quadraten auch statisch. Auch die Geometrie Positionen sind sowohl kartesisch (Polygon) und polar (Rotation) implementiert mit doppelter Sicherheit zum Vergleich. Die 3 Animationen (rgb, cx, cy) sind in Values zusammengefasst. 
+Und die Reihenfolge der Farb-Punkte, der Polygon-Punkte sowie der Animations-Sequenz sind in Kommentaren vermerkt.
+
+-----------------------------------------
+
+Ich hoffe, ich habe jetzt nicht zu viele Schreibfehler drin und die Hinweise helfen, so dass jeder die Beispiele zum Laufen bringt und versteht. Sie sollten die Schulkenntnisse von kartesischen, polaren Koordinaten und Transformationen einschließlich Kreis-Gleichung r2 = x2 + y2 bis Kugel-Gleichung r2 = x2 + y2 + z2 sicher anwenden können. Wenn es weitere Fragen gibt, müssen wir das noch (nicht nur wegen der Klausur) festigen und vertiefen. Weitere Lösungen folgen. Gutes Gelingen.
+
+-----------------------------------------
+
+Dieter Herrmann, Dresden, 2021-02-20
+
+-----------------------------------------

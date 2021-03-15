@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+          "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"> 
+
+<!-- (c) by Dieter Herrmann, 2021-02-19 --> 
+
+<svg id="7-Eck_UHD" width="100%" height="100%"  viewBox="-20 -20  3880 2200"
+     xmlns="http://www.w3.org/2000/svg" version="1.1"
+     xmlns:xlink="http://www.w3.org/1999/xlink" >
+
+<title>7-eck im Circle in UHD Auflösung mit 3840x2160px</title>
+<desc >7-eck im Circle in UHD Auflösung mit 3840x2160px</desc>
+
+<rect id="canvas_viewBox" x="0" y="0" width="3840" height="2160" rx="20" ry="20" 
+      style="fill:rgb(255,255,255); stroke:rgb(070,070,150); stroke-width:4.0" />
+
+<defs>
+  <style type="text/css"> 
+   <![CDATA[
+     rect.   { fill:rgb(100,200,100); stroke:rgb(010,010,010); stroke-width:3; }
+     line   { fill:none; stroke:rgb(255,255,128); stroke-width:3; }
+     text   { font-family:Verdana; fill:rgb(070,070,070); }
+   ]]>
+  </style>
+  
+<rect id="rect_7rgb" x="2880" y="1020"  width="120" height="120"  
+      style="stroke:none; stroke-width:0.0" />
+	  
+</defs>
+
+<!--  ============  Colors 1 to 7 according to Hue Angle within 0 to 360 degrees  ;
+      1(orange), 2(yellowgreen), 3(limegreen), 4(cyan), 5(blue), 6(magenta), 7(red)  ==============  -->
+
+<circle id="Einheits-Kreis_blau" cx="1920" cy="1080" r="1080" 
+        style="fill:rgb(255,255,255); stroke:rgb(000,000,255); stroke-width:4;" />
+
+<circle id="Hue_corner_1" cx="3000" cy="1080" r="60"  transform="rotate(-38.571, 1920, 1080)" 
+        style="fill:hsl(39,100%,50%); stroke:rgb(000,000,255); stroke-width:4;" />
+
+   <use id="RGB_corner_1" xlink:href="#rect_7rgb"     transform="rotate(-38.571, 1920, 1080)" 
+        style="fill:rgb(255,164,0); " />
+		
+<circle id="Hue_corner_2" cx="3000" cy="1080" r="60"  transform="rotate(-90.000, 1920, 1080)" 
+        style="fill:hsl(90,100%,50%); stroke:rgb(000,000,255); stroke-width:4;" />
+
+   <use id="RGB_corner_2" xlink:href="#rect_7rgb"     transform="rotate(-90.000, 1920, 1080)" 
+        style="fill:rgb(127,255,0); " />
+
+<circle id="Hue_corner_3" cx="3000" cy="1080" r="60"  transform="rotate(-141.429, 1920, 1080)" 
+        style="fill:hsl(141,100%,50%); stroke:rgb(000,000,255); stroke-width:4;" />
+
+   <use id="RGB_corner_3" xlink:href="#rect_7rgb"     transform="rotate(-141.429, 1920, 1080)" 
+        style="fill:rgb(0,255,91); " />
+		
+<circle id="Hue_corner_4" cx="3000" cy="1080" r="60"  transform="rotate(-192.857, 1920, 1080)" 
+        style="fill:hsl(193,100%,50%); stroke:rgb(000,000,255); stroke-width:4;" />
+
+   <use id="RGB_corner_4" xlink:href="#rect_7rgb"     transform="rotate(-192.857, 1920, 1080)" 
+        style="fill:rgb(0,200,255); " />
+	
+<circle id="Hue_corner_5" cx="3000" cy="1080" r="60"  transform="rotate(-244.286, 1920, 1080)" 
+        style="fill:hsl(244,100%,50%); stroke:rgb(000,000,255); stroke-width:4;" />
+
+   <use id="RGB_corner_5" xlink:href="#rect_7rgb"     transform="rotate(-244.286, 1920, 1080)" 
+        style="fill:rgb(18,0,255); " />
+		
+<circle id="Hue_corner_6" cx="3000" cy="1080" r="60"  transform="rotate(-295.714, 1920, 1080)" 
+        style="fill:hsl(296,100%,50%); stroke:rgb(000,000,255); stroke-width:4;" />
+
+   <use id="RGB_corner_6" xlink:href="#rect_7rgb"     transform="rotate(-295.714, 1920, 1080)" 
+        style="fill:rgb(237,0,255); " />
+		
+<circle id="Hue_corner_7" cx="3000" cy="1080" r="60"  transform="rotate(-347.143, 1920, 1080)" 
+        style="fill:hsl(347,100%,50%); stroke:rgb(000,000,255); stroke-width:4;" />
+
+   <use id="RGB_corner_7" xlink:href="#rect_7rgb"     transform="rotate(-347.143, 1920, 1080)" 
+        style="fill:rgb(255,0,55); " />
+
+<!--  ===========  Polygon 7-Eck Points from Top CW Clockwise Colors 2-1-7-6-5-4-3  ===================  -->
+		
+<polygon id="7-Eck_rot" 
+         points="1920,0  2764,407  2975,1310  2388,2053  1452,2053  865,1310  1076,407 "
+         style="fill:none; stroke:rgb(255,0,0); stroke-width:4;" />
+		 
+<polygon id="7-Stern_gruen" 
+         points="2388,2053  1076,407  2975,1310  865,1310  2764,407  1452,2053  1920,0 "
+         style="fill:none; stroke:rgb(0,200,0); stroke-width:4;" />
+
+<line id="horizontal_x" x1="840" y1="1080"  x2="3000" y2="1080"
+          style="fill:none; stroke:rgb(255,000,100); stroke-width:2.3" />
+<line id="vertical_y"   x1="1920"  y1="0" x2="1920" y2="2160"
+          style="fill:none; stroke:rgb(050,000,255); stroke-width:2.0" />
+
+<!--  ==========  Animate Color Sequenz 6-3-7-4-1-5-2-6  ====================  -->
+		  
+<g id="Comet_7Star" >
+  <circle id="Flying_Spot" cx="2388" cy="2053" r="60"  transform="translate(000, 000)" >
+	<animate id="Color_Circle" attributeName="fill"  
+                 begin="0.500s" dur="8.0s" repeatCount="indefinite"
+                 values="rgb(237,0,255); rgb(0,255,91); rgb(255,0,55); 
+                         rgb(0,200,255); rgb(255,164,0); rgb(18,0,255); 
+                         rgb(127,255,0); rgb(237,0,255) " />
+
+        <animate id="Cx" attributeName="cx" 
+                 begin="0.500s" dur="8.0s" repeatCount="indefinite" 
+                 values="2388 ; 1076 ; 2975 ; 865 ; 2764 ; 1452 ; 1920 ; 2388 " />
+        <animate id="Cy" attributeName="cy" 
+                 begin="0.500s" dur="8.0s" repeatCount="indefinite" 
+                 values="2053 ; 407 ; 1310 ; 1310 ; 407 ; 2053 ; 0 ; 2053 " />
+  </circle>
+</g>
+
+<g id="Text_Abbildung" transform="matrix(1 0 0 1   2700 2000)" >
+ <text x="0" y="000" style="font-family:Verdana; font-size:76px; fill:black">
+        Abbildung: &#160;7Eck_UHD.SVG </text>
+ <text x="0" y="060" style="font-family:Verdana; font-size:49px; fill:black"> 
+        (c) Dieter Herrmann / Dresden 19.01.2021 </text>
+</g>
+
+</svg>

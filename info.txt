@@ -1,0 +1,62 @@
+Dresden, 03.03.2021
+
+Re _Klausur _90 Minuten mit 6 Aufgaben je 12 Punkte (Mail 2021-02-16)
+---------------------------------------------------------------------
+
+
+Sehr geehrter Herr Bauch,
+wirklich vielen Dank für jede Rückmeldung.
+
+Bitte senden Sie diese Mail auch in den Gruppenverteiler, und teilen Sie mir den bitte auch noch kurz mit. Ich bin gerade raus aus der BA-Mail und während der Kommunikation mit Prof. Brunner heute morgen, wird man offensichtlich mit Time Out getrennt.
+Es sind gerade noch 15 andere aktuelle Websites zur Computergrafik offen, die ich für Sie noch aufbereiten möchte (Entwicklungen und Standards der nächsten Jahre !).
+
+
+Offensichtlich sitze ich so zwischen 2 Stühlen, während die einen schon riesige Frameworks bauen wollen, haben andere schon etwas die Schul-Mathematik und Informatik vergessen.
+
+Ich gebe mir wirklich größte Mühe, die aktuelle Hightech Entwicklung (AI Smartphone mit CPU, GPU, DSP und NPU mit Computer Vision) auf Schulmathematik für jeweils etwa 10 Mnuten herunter zu holen.
+
+-------------------------------------
+
+Wirkliche Empfehlung : TAFELWERK Wissen (7. bis 12. Klasse) einsatzbereit !
+Also Funktionen, linear, exponentiell, Wurzel, log, sin, cos, tan, und arc sin cos tan ; entsprechend sicherer Umgang mit Taschenrechner, mit Überschlagsrechnung auf Plausibilität, zum Bemerken und Korrigieren von Tipp-Fehlern !!!
+
+Einheits-Kreis, Koordinaten, kartesisch, polar, Winkel, Degrees DEG und RAD; Pythagoras, Kreis-Gleichung r2 = x2 + y2, Kugel-Gleichung r2 = x2 + y2 + z2; Berechnungen und Umrechnungen (Transformationen);
+
+Ebene 2D Figuren, Dreieck, Viereck, Parallelogram, Polygon, Kreis, Ellipse, 2D Grafik, mit englischen Bezeichnungen, Elementen, (SVG) ;
+
+Körper 3D, Würfel, Quader, Pyramide, Prisma, Polyeder, Zylinder, Kegel, Doppel-Kegel, Kugel, 3D Grafik, mit englischen Bezeichnungen, Elementen, (X3D) ;
+
+Zahlen-Systeme, dezimal, dual, hexadezimal, 8 bit, 10 bit, 12 bit, 16 bit, je Kanal, Dimension, Koordinate, Position, Farbe, absolute Koordinaten (Pixel, Voxel, Farben, Graustufen) und relative Werte oder Koordinaten (0.0 bis 1.0 ; 0% bis 100%), Berechnungen und Umrechnungen, (Transformationen).
+
+Wirkliche Empfehlung : TAFELWERK Wissen (7. bis 12. Klasse) einsatzbereit !
+
+-------------------------------------
+
+Zu 1.) und 2.)
+Die Antwort dazu hatte ich schon am 16.02.2021 gemailt.
+
+-------------------------------------
+"Mail : SMIL Aufgabe_2021-02-16_01" :
+-------------------------------------
+Wenn wir genug machbares Material zusammen haben, stimmen wir uns zu den Schwerpunkten einer vernünftigen Klausur ab.
+
+Beispielsweise 6 Aufgabe aus folgenden Komplexen :
+--------------------------------------------------
+- Begriffe ;
+- 1D Tranfer Function, y=f(x) mit Parametern (m, n, Gamma) ;
+- 2D Affine Transformationen, svg+xml, (rotate, scale, translate, skew, matrix) ;
+- 3D Farbraum Transformationen, rgba, hsla, ycbcr (JPEG, MPEG) ;
+- Animationen, Time-Sheets ;
+- 3D, Virtual Reality, x3d+xml, x3dom ;
+- Pattern Matching ;
+- Ihre Vorschläge ;
+
+Da ich alle Hilfsmittel zulasse, stehen die Lösungen auch nicht wirklich im Internet. Und selbst, wenn Internet, Cloud und Strom zusammenbrechen, muss die Klausur auch auf Papier und mit Taschnrechner lösbar sein.
+-------------------------------------
+
+Von möglichen 6 Aufgaben haben Sie inzwischen praktisch schon 4 Aufgaben von der letzten Klausur - Begriffe, Pfad Animation, Farbkreis Transformation, Pattern Matching. Die Lösung zur Affinen Transformation 2D Würfel bereite ich Ihnen noch detailiert mit Hinblick auf die Klausur auf.
+
+-------------------------------------
+
+Zu 3.) alle Hilfsmittel erlaubt - auch das Internet eingeschlossen ?
+Auch das hatte ich schon in einer vorangegangenen Mail eingeräumt, außer kollektive Gemeinschafts-Klausur. Hier bin ich auch nur Gast in der BA Leipzig. Wenn also dass Internet missbraucht wird, und die BA das unterbindet, um allen gleiche Bedingungen zu schaffen, dann ist das natürlich Hausrecht und Durchsetzung der Prüfungs-Ordnung.

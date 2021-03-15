@@ -1,0 +1,110 @@
+﻿
+Hallo Welt _Hello Color Space _Farbraum Transformation YCbCr nach ITU BT-2020 in X3DOM _Aufgabe _2021-02-17_01
+--------------------------------------------------------------------------------------------------------------
+
+Ordner, Referenzen, BA File System, Vodafonemail Cloud, w3.org, WWW, ITU, Web3D.org, MPEG :
+
+_ITU _International Telecommunication Union _BT Series - Broadcasting Services Television ;
+SDTV : R-REC_BT-601-7-201103-I_PDF-E.pdf ;
+HDTV : R-REC_BT-709-6-201506-I_PDF-E.pdf ;
+UHD  : R-REC_BT-2020-2_2015-10-I_E.pdf ;
+
+_Vid_Docu_BT_2020_ ;
+_Vid_Docu_Hdtv2025 ;
+
+Ima_Docu_JPEG_Yuv.zip ;
+Ima_Docu_Yuv_YIQ_.zip ;
+
+_Mod_Docu_VRML1997 _VRML97IS.pdf _Box Color Cylinder Shpere Text _Appearance _ImageTexture _IndexedFaceSet _IndexedLineSet _Material _Transform _Viewpoint ;
+
+_Mod_Docu_X3D_Iso_ _ISO-IEC-19776-1.2-X3DEncodings-XML ;
+
+Mod_Medi_X3D_CAD3.zip ;
+Mod_Medi_X3D_RGBw.zip ;
+Mod_Medi_X3D_Tran.zip ;
+
+Weitere :
+Ima_Docu_CIE_xyz_.zip ;
+Ima_Docu_Ditherin.zip ;
+Ima_Docu_FarbFilt.zip ;
+Ima_Docu_FarbName.zip ;
+Ima_Docu_GammaCor.zip ;
+Ima_Docu_Histogrm.zip ;
+Ima_Docu_PersTran.zip ;
+Ima_Docu_WidGamut.zip ;
+
+Ima_Medi_FullSpec.zip ;
+Ima_Medi_IBR_Rend.zip ;
+Ima_Medi_Wavelets.zip ;
+
+Ima_Tool_Color_3D.zip ;
+
+
+X3D+XML, X3DOM, X3D Octaga Player (Stand-Alone), Internet Browser mit WebGL, Notepad ++, Mod_Tool, TaschenRechner, andere ;
+
+
+_x3dom-full.js _herunter laden _lokal neben xht Datei speichern _im head script mit src=x3dom-full.js einbinden _Versionen etwa 1 MByte ;
+
+( In den Beispiel Ordnern : Mod_Medi_X3D_CAD3.zip ; Mod_Medi_X3D_RGBw.zip ; Mod_Medi_X3D_Tran.zip mit enthalten, in den BA Dateien sowie Cloud, 
+oder unter X3DOM.org . )
+
+-----------------------------------------
+
+Farben, obwohl sie spektral ja nur linear in nm sind, lassen sich in beliebige Farb-Räume transformieren, 1D, 2D, 3D, multi-dimensional.
+In der Computergrafik haben sich in TV, Video, PC bis Internet, sRGB, RGB (RGBW, CMYK) Color Cube, Hue Farbkreis, HSL Doppel-Kegel, HSLA, YCbCr und viele andere etabliert. Um Anwendungen zu ermöglichen, sind Projektionen und Transformationen ineinander und Standards erforderlich. Deren Visualisierung ist zum besseren Verständnis hilfreich. Aus den linearen Transformatione-Gleichungen wie YCbCr = f (RGB) ergeben sich so 3 * 3 = 9 Matrix Koeefizienten, jeweils für die Hin- und Rück-Transformation, beispielweise in JPEG und MPEG. Die 9 Koeffiziente unterscheiden sich dabei auch in den unterschiedlichen Entwicklungen (etwas), wie SDTV (601), HDTV (709) oder UHD (2020).
+
+-----------------------------------------
+
+Zur ersten Übung finden Sie eine Klausur Aufgabe mit Lösung.
+[ CGA-Klausur_Lösung_Seite 6-6 _Frage 6 _YCbCr (HDTV 709) _2021-02-17 _0687x1080px _08bpp.png ] 
+
+In einer Klausur stehen dafür mit Taschenrechner etwa 10 bis 15 Minuten zur Verfügung.
+
+-----------------------------------------
+
+Sehen Sie sich dann kurz die Begriffe, Elemente und Attribute in VRML1997 an, dort finden sich übersichtliche Abbildungen. 
+[ _Mod_Docu_VRML1997 _VRML97IS.pdf _Box Color Cylinder Shpere Text _Appearance _ImageTexture _IndexedFaceSet _IndexedLineSet _Material _Transform _Viewpoint ]
+
+Um es effektiv in die heutigen Browser zu bringen, ist eine Auszeichnung in XML, X3D+XML nach ISO Standard erforderlich (Web3D.org), der über eine x3dom-full.js direkt WebGL hardware beschleunigt nutzen kann. 
+
+Testen Sie die beiliegenden Beispiele :
+[ YPbPrRGB.x3d ] , mit Stand-Alone X3D Playern, wie Octaga, [ Mod_Tool ].
+
+[ RGB_Cube_3D_Stereo-VR _2017-02-27_05.xht ] , in WebGL fähigen Internet Browsern (Mozilla Firefox, Google Chrome, andere).
+
+-----------------------------------------
+
+Gehen Sie von den funktionierenden 3D Beispielen aus. 
+[ RGB_Cube_3D_Stereo-VR _2017-02-27_05.xht ]
+
+Für weitergehende Nodes sind die ISO Standards in den BA Dateien, sowie auch online unter Web3D.org und X3DOM.org.
+[ _Mod_Docu_X3D_Iso_ _ISO-IEC-19776-1.2-X3DEncodings-XML ]
+
+Nutzen Sie mein X3DOM Stereo Beispiel und Portieren Sie die YPbPrRGB.x3d in eine YCbCrRGB_3D_Stereo-VR.xht, die nach X3DOM im Browser (WebGL) läuft. 
+Optimieren Sie die Fenster-Größen für Full-HD, etwa Links und Rechts [900x900px] + [900x900px] in HDTV [1920x1080px].
+Die Stereo-Views können für vergleichende Darstellungen genutzt werden, unterschiedliche ViewPoints, ViewPorts, Start-Positionen und Ansichten, IndexedLineSet versus IndexedFaceSet, Front View versus Side View, HDTV(709) versus UHD(2020), und andere. 
+
+Die Farb-Kodierung bleibt zwischen Schwarz K [ 0.0 0.0 0.0 ] und Weiss W [ 1.0 1.0 1.0 ]. 
+Die Voxel (Volumen Pixel) oder Vertizes lassen sich von 0.0 und 1.0 aber auf einen gewünschten Integer Bereich etwa non 0 bis 1000 ohne Komma skalieren. 
+Statt 1 m Metrik hätte man dann 1 mm Genauigkeit. Da das TRANSFORM Element in 3D gleichzeitig ein Gruppen-Element ist, lässt sich hier die Skalierung der Ausgabe an die Browser-Fenster wieder leicht anpassen. Bei eventuellen Rotationen ist darauf zu achten, dass sie im 3D Raum 4 Parameter erfordert (x y z RAD), also eine Raum-Achse (x y z) und den Rotations-Winkel darum (CCW - Counter Clockwise - entgegen Uhrzeiger) in Vielfachen von Pi = 3.1416. 
+
+Es empfielt sich ein stufenweise Vorgehen. Erst die Echpunkte des RGB Farbraumes im YCbCr Farbraum mit 8 farbigen RGB Kugeln markieren. 
+Dann diese Farb-Eckpunkte mit einem IndexedLineSet zu verbinden. Und schließlich kann man aus dem farbigem WireFrame ein IndexedFaceSet bilden, und die Flächen korrekt automatisch farbig rendern lassen.
+
+-----------------------------------------
+
+Wer dann noch eine Herausforderung braucht, der kann das "Hello World", in der Computergrafik das "Hello RGB Tringle", in die dritte Dimension erheben: ein "Hello RGBW Tetraeder" in einer Einheits-Sphere (Glas-Kugel) mit r=1000 (statt default r=1.0), mit D=2000px passend und zentriert für einen UHD Bildschirm in 3840x2160px in 16 zu 9.
+
+Sie brauchen nur 1 Sphere (Glas-Kugel), 4 Punkte (Eck-Kugeln) und 4 Farben (RGBW), 6 Linien (RGB Dreieck Grundfläche unter dem Äquator mit Weißer Pyramiden-Spitze auf der Y-Achse im Nordpol), 4 Flächen (Faces, 1 Ground und 3 Sky).
+
+-----------------------------------------
+
+Bei grüner Welle und wenig Berechnugs-Fehlern sollten die Übungen in 8 Stunden klappen. 
+Mit weitergehenden Experimenten, Korrekturen, Optimierungen, Dokumentation und Vertiefungen können daraus auch mehr Stunden werden. 
+Übung macht den Meister. In der Klausur stehen für eine vergleichbare 3D Farbraum-Transformation mit 6 bis 10 Voxel Punkten und Farb-Kodierungen, die richtig in ein vorgegebenes Quelltext-Gerüst einzufügen sind, etwa 10 bis 15 Minuten zur Verfügung. Die 3D Aufgabe ist nach entsprechender Übung mit 2D und 3D sowie Polar-Koordinaten und Transformationen mit Taschenrechner lösbar.
+
+-----------------------------------------
+
+Dieter Herrmann, Dresden, 2021-02-17
+
+-----------------------------------------
