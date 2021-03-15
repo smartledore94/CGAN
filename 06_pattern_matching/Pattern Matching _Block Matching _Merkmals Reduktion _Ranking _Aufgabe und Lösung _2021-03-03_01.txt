@@ -1,0 +1,152 @@
+﻿
+Pattern Matching _Block Matching _Merkmals Reduktion _Ranking _Aufgabe und Lösung _2021-03-03_01
+------------------------------------------------------------------------------------------------
+
+Ordner, Referenzen, BA File System, Vodafonemail Cloud, Media Audio Image Model Text Video :
+
+Aud_Docu_BinAural ;
+_Binaural bis Echo Location ;
+
+Aud_Docu_SoundIma ;
+_Sound Imaging _Klang Bilder _SoundScapes _ SchallBilder ;
+
+Aud_Docu_SubVocal ;
+_SubVocal Speech _SVR - SubVocal Recognition - text-based output - similar to Voice Recognition ;
+
+Aud_Medi ;
+
+Aud_Tool_AdobVoCo ; 
+_Adobe VoCo _Voice Converter 2017 _Audio Sprach Verarbeitung mit Word Meta User Interface _Video ;
+
+Aud_Tool_AlterEgo ;
+_AlterEgo MIT _2018 _Gesichtsmaske erkennt gedachte Woerter ohne Mundbewegungen ;
+
+Aud_Tool_VoCo2017 ;
+_VoCo _Text-based Insertion and Replacement in Audio Narration _2017-05-11 _06min-02sec ;
+
+
+Mod_Docu_Face2D3D ;
+_A Morphable Model for the Synthesis of 3D Faces _Volker Blanz and Thomas Vetter _3D morphable model face animation _by Volker Blantz at MPI _2006-04-20 _05min_16sec ;
+
+Mod_Medi_CineRend ;
+_Cinematic Rendering is a novel 3D rendering algorithm ;
+
+Weitere 12 Dateien ;
+
+-----------------------------------------
+
+Eine mögliche Klausur Aufgabe, die ergänzend zur Computer Grafik kurz erläutert werden soll. 
+Muster Erkennung vom Passwort, über QR Code bis Face ID, 3D Venen Scanner bis Spacherkennung, RADAR oder LIDAR sind heute Alltag. 
+
+Egal in welchen Media Arten oder in welcher Dimension (1D, 2D, 3D, Multi-D) und Komplexität es realisiert wird, 
+soll hier ein einfaches Beispiel gezeigt und auf Besonderheiten verwiesen werden. 
+
+Eine Video Sequenz oder ein 3D Objekt lässt sich durch Capture und Projektion auf eine 2D Fläche mit Farb/Grauwert Tiefe einfrieren. Diese Merkmalsreduktion kann man bis zu einer 1D Liste fortsetzen (Skalarer Merkmalsvektor), und dann über Schwellwerte zu einer Entscheidung führen. 
+
+Achtung ! Anders als bei strikten Passworten oder Binär Dateien, sind Medien in Raum und Zeit nie eindeutig oder vollständig identisch. Mikro-Bewegungen und Quantenrauschen (Abtastraster, zeitliche Quantisierung, thermisches Rauschen, elektronisches Rauschen, Digitalisierungsrauschen, Rechengenauigkeit, Rundungsfehler, und so weiter) lassen nur eine gewisse Näherung und Unschärfe zu. Die Identifikation wird schließlich binär über Schwellwerte getroffen, mit einer Aussage zur Wahrscheinlichkeit oder Fehlerabweichung. 
+
+Das wird eigentlich auch schon bei Schulexperimenten geübt, wenn etwa bei Temperaturmessungen die Messgenauigkeit durch mehrere Messungen erhöht werden soll, und man Mittelwert und Standard-Abweichung statistisch bestimmt.
+
+-----------------------------------------
+
+Schauen Sie sich zunächst ein vereinfachtes Beispiel an.
+[ GreenBoard 05 _Pattern Matching _Motion Vector of Target 1 _by simple Differencing _1280x0720px_64color_08bpp.png ]
+
+Es ist ein 3x3 Muster der Menge 1 oder zum Zeitpunkt t1. Die 1 in der Mitte des Rasters hat sich zum Zeitpunkt t2 nach links oben bewegt, und man sieh es scheinbar sofort. Reale Merkmale sind komplexer, auch wenn ein QR Code nur ein 2D bit Muster ist, wird es in der Kamera oder im Scanner doch zu einem verzerrten 3D Rauschmuster. Und die Maschine hat kein paralleles Erkennungsvorwissen. Es muss deshalb der gesamte Merkmalsraum abgescannt werden, mit Roher Gewalt (Brute Force). Da es hier 9 mögliche Positionen gibt, werden also auch alle 9 Möglichkeiten auf Übereinstimmung geprüft. Die Abweichung stellt einen Fehler dar, und kann dann nach Fehlergröße sortiert werden. 
+
+Zunächst einfache lineare Differenz delta = (t2 - t1) in den einzelnen Positionen. 
+Es gibt außerdem eine eindeutige und vollständige Abarbeitungs-Reihenfolge, hier von links oben nach rechts unten. 
+Hier sind vereinfacht auch alle Differenzen Nicht-Negativ, zwischen 0 und 7. Das lässt sich nun einfach sortieren von Min bis Max Fehler. Es wird eine Identität gefunden, und damit liegt der Bewegungsvektor mit der Differenz genau 0 nach links oben fest. 
+
+3 Besonderheiten :
+In der Realität wird die Differenz kaum genau 0 sein. 
+Deshalb können auch Objekte gefunden werden, die scheinbar besser passen, (Kollateralschaden).
+Außerden ist das Objekt und die Umgebung mit dem besagten Quanten- oder Quantisierungs-Rauschen (wenigstens Delta +/-1) überzogen, und deshalb von Situation zu Situation nicht identisch. 
+Es können durch die begrenzte Rechengenauigkeit und Echtzeitforderungen Mehrdeutigkeiten auftreten. 
+
+Hier Delta = 4 oben Mitte und unten Mitte. Eine Gleichrangigkeit gibt es bei eindeutigen Verfahren nicht, deshalb gilt die Abarbeitungsreihenfolge, oder zusätzlich festgelegte Prioritäten und Parameter zum Ranking. 
+Deshalb oben 5 und unten 6 !
+
+Schließlich können Differenzen positiv und negativ sein, diese dürfen sich nicht gegenseitig kompensieren. 
+Ein vollständig nicht passendes Muster könnte sonst trotzdem auf den Gesamtfehler 0 kommen, (+3 -3 = 0), und zu fehlerhafter Identifikation führen.
+
+-----------------------------------------
+
+Beispiel Klausur Aufgabe :
+[ BA01210L _Seite 9-6 _Frage 3 _Pattern Matching _Lösung _0882x1080px _08bpp.png ]
+
+Im Video MPEG gibt es zur besseren Kompression so genannte Group of Pictures (GoP) mit Intra-Frames und Predictive Frames, also I-Frames und P-Frames. Im Datenstrom werden dann nur die differentiellen Änderungen übertragen, oder anders gesagt, die Schätzfehler beziehungsweise Muster-Abweichungen. Das entspricht auch dem Pattern Matching zum Beispiel für eine Bewegungs-Kompensation, Motion Compensation (MC). 
+
+Das gesuchte Objekt wird durch Muster-Vergleich gefunden. Hier ist es das Symbol Y aus [1 1 1 1]. 
+Das Symbol kann nun in der näheren Umgebung in 9 Positionen vorkommen, von links oben, über zentriert bis rechts unten. In diesen 9 möglichen Positionen werden nun durch Überlagerung die Abweichungen als Differenzen ermittelt, positive ebenso wie negative. 
+
+Links oben entsprechend [2 2 2 5] - [1 1 1 1] = [1 1 1 4].
+Bis rechts unten entsprechend [0 6 2 9] - [1 1 1 1] = [-1 5 1 8]. 
+
+Damit sich positive und negative Differenzen nicht aufheben, werden die Differenzen quadriert zu auschließlich positiven Abweichungen. Diese Exponentielle Transfer Function (Übertragungs Funktion) hat noch eine weitere entscheidende Bedeutung. Identität bleibt erhalten, kleine Fehler bleiben klein und große Abweichungen werden sanktioniert. 0² = 0 ; 1² = 1 ; aber 9² = 81. 
+
+Die 4 einzelnen Y Fehler werden zu einer quadratischen Abweichung zusammengefasst, und durch exponentionelle Kantrastanhebung gleichzeitig gespreizt. Einzelabweichungen bisher nur -1 bia 8. Die Sortierreihenfolge reicht nun von minimal 12 bis maximal 91. Das Ranking lässt sich nun als Liste von 1 bis 9 gut sortieren. 
+
+Bei großen Datenmengen sind trotz exponentieller Spreizung Doppeldeutigkeiten und Mehrdeutigkeiten nicht immer zu vermeiden. 
+Hier tritt die Abweichung 60 zweimal auf. 
+Es ist bei eindeutigem Ranking nicht korrekt, wie bei einer Siegerehrung 2 gleiche Plätze zu vergeben. 
+Weder 7 und 7, noch 7/8 und 7/8 oder 8 / 8. Da keine weitere Sortierbedingungen und Priorätäten angegeben sind, bekommt in der Abarbeitungsreihenfolge die 60 in der ersten Zeile Rank 7 und die 60 in der zweiten Zeile den Rank 8.  
+
+-----------------------------------------
+
+In der Klausur haben fast alle die Aufgabe vernünftig gelöst. 
+Allerdings haben nicht alle die gemachten Hinweise berücksichtigt, und dadurch ein paar Punkte verschenkt. 
+
+Die 12 Punkte dafür bedeuten ungefähr auch, dass Sie das in etwa 12 Minuten richtig berechnen können. 
+Wenn es Fragen dazu gibt, bitte ich um konkrete Rückmeldung.
+
+Diese Methoden sind natürlich hoch automatisiert und laufen heute in Real Time und allen Medien Typen bis hin zu Autonomen Systemen. 
+Schauen Sie sich ergänzend dazu durchaus die Videos von :
+- Sound of Football, ( https://www.youtube.com/watch?v=ADXOGrwiPok ) ;
+- 3D Morphable Face Models, (3DMM), 1999, und nachfolgend ;
+- VoCo Voice Converter ;
+- Photo Style Transfer ;
+
+Und viele weitere Beispiele in den BA Dateien sowie im Internet an.
+
+-----------------------------------------
+
+Damit Sie in der Klausur nicht nur rechnen müssen, gibt es ausgleichend noch einen kurzen Exkurs zu Begriffen und deren Bedeutung und Anwendung.
+
+In der letzten Klausur waren das :
+- HDR, LDR ;
+- Motion Path, Time Sheets ;
+- RGB Color Cube ;
+- Scalability ;
+- Transfer Fucktion, Lin, Log ;
+- X3D + XML, X3DOM ;
+
+[ BA01210F _Seite 7-2 _Frage 1 _Begriffe 6 _Fragen _0639x1080px _04bpp.png ] ;
+
+Da Sie für je 2 kurze aber eigenständige Stichpunkte insgesamt auch bis 12 Minuten Zeit haben, gibt es von 24 Studenten auch eine Vielzahl von Antworten zum Thema Computer Graphics / Animation. 
+
+Allerdings sollten Sie nicht ungeprüft den Mainstream von Suchmaschinen übernehmen. 
+
+Also HDR - als High Definition Resolution zu erklären, wäre hier falsch - versus High Dynamic Range. 
+Oder Time Sheets - als Zeiterfassung eines Arbeiters zu deuten, passt auch nicht - versus SMIL Zeit Vorlagen, Ablauf-Steuerung, Zeit Auszeichnung analog CSS für dynamisches Verhalten von Objekten und Elementen bis zu Animationen, Transition und Transformationen. 
+
+Lösungs-Raum an Möglichkeiten :
+[ BA01210L _Seite 8-2 _Frage 1 _HDR LDR _Lösung _0666x1080px _04bpp.png ] ;
+
+Da ich ja auch einen Lösungsvorschlag für die Korrektur hinterlege, ist hier eine Menge an Antwortmöglichkeiten zusammengefasst. Es hat aber bisher nie Streitigkeiten um Punkte gegeben. 
+
+In der Klausur möchte ich wirklich nur 2 kurze, unabhängige aber aussagekräftige Stichpunkte haben. 
+
+Zum Beispiel, die Ausschreibung der Abkürzungen, die Übersetzung von Fachausdrücken, alternative Wort-Erklärungen, Anwendungsbeispiele dazu, Verweis auf Standards oder Konsortien, Abgrenzung von Gegen-Beispielen (HDR versus LDR, Pixel versus Voxel, Pixel versus Vektor). 
+
+Zu einer Begriffs-Auswahl oder Bereichen für die Klausur können wir uns ja auch noch kurz und konstruktiv abstimmen.
+
+-----------------------------------------
+
+Für konkrete Fragen stehe ich gerne zur Verfügung.
+
+-----------------------------------------
+
+Dieter Herrmann, Dresden, 2021-03-03
+
+-----------------------------------------
