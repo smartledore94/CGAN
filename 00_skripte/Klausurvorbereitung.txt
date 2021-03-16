@@ -1,0 +1,251 @@
+# Prüfungsvorbereitung CGAN
+
+## Skript 1
+>>> - Camera Obscura:
+	-> Kiste mit Loch in der Seite
+	-> durch Loch fällt Licht, sodass auf gegenüberliegender Seite ein umgedrehtes Abbild des realen Gegenstands entsteht
+>>> - permanentes Festhalten der Bilder der Camera Obscura
+	-> Louis Daguerre, 1836
+	-> Technik: Daguerreotypie
+	-> Silberiodid auf Kupferplatte hinter Glas
+	-> jedes Werk ist ein Unikat, das nicht kopiert werden kann
+>>> - Konkurrenz zu Daguerre: Henry Talbot 
+	-> Kalotypie (1841 patentiert)
+	-> Silberiodid auf Papier
+	-> ebenfalls Fixation
+	-> erlaubt beliebig viele Kopien des Werks
+>>> - um die Jahrhundertwende (19./20. Jh.) Erfindung Kleinbildkamera bzw. -film
+	-> analoge Filmkamera: Ur-Leica
+	-> Sensorgröße 36x24mm 
+	-> bis heute gängige Sensorgröße (Kleinbild Vollformat!)
+>>> - danach Wechsel zum Einfangen von direkt/"online" zu übertragenden Bildern
+	-> hat zum Fernsehen geführt
+	-> Ziel: Ansammlung von Elektronen zur Abbildung von Objekten
+>>>	-> photoelektrischer Effekt
+		--> äußerer PE (Metalle): durch das Auftreffen von Photonen auf
+			Metallen werden Elektronen aus dem Stoff ausgelöst; diese 
+			können sich an der Oberfläche sammeln
+		--> innerer PE (Halbleiter): durch Auftreffen von Photonen werden	
+			Elektronen in ein Leitungsband angehoben, sodass der elektrische
+			Widerstand des Halbleiters reduziert wird & der Halbleiter
+			damit elektrisch leitfähig wird
+	-> durch PE: Umwandlung von Photonen in Elektronen, sodass aus Lichtbild
+		ein Elektronenbild gemacht wird
+- Fernsehröhren wurden schrittweise kleiner
+	-> zuerst Ausnutzung des äußeren PE, später Nutzung des inneren PE
+	-> Größe Sensorfläche spielt bis heute Rolle
+>>>	-> Sensorfläche 1 Zoll führt zu Bildfläche von lediglich 16,4 mm
+	-> gängig 1 Zoll Röhre, die nur eine Bildfläche von ca. 16,4 mm 
+		aufweist (d.h. ist eigentlich weniger als 1 Zoll!)
+- Halbleitersensoren haben Fernsehröhren abgelöst
+	-> erste Halbleitersensoren Anfang der 1980er Jahre
+>>> - CCD-Sensoren (Charge Coupled Device) vs. CMOS (Complementary Metal Oxide Semiconductor)
+	-> beides Halbleitertechnologie, basierend auf innerem PE
+	-> von unterschiedlichen Teams entwickelt
+>>> - CCD-Sensoren
+	-> ursprünglich als Speicherzellen entwickelt
+	-> Licht versetzt Elektronen in beweglichen Zustand; diese werden in 
+		Kondensator gespeichert (d.h. pro Pixel wird Lichtmenge gesammelt)
+	-> Ladung ist proportional zur Lichtmenge, d.h. je mehr Licht, desto
+		mehr Elektronen
+	-> durch Anlegen von Strom können angesammelte Elektronen sukzessiv
+		über den Sensor geschickt werden ("schrittweises Fortschalten")
+	-> am Ende in Verstärker & werden ausgelesen (jedes Pixel seriell 
+		nacheinander)
+>>>	-> unterschiedliche Varianten:
+		--> Full Frame: jede Zeile wird schrittweise durch den Verstärker 
+			geschickt und ausgelesen
+		--> Frame Transfer: gesamter Bildbereich wird in abgeschatteten
+			Bereich nach der Aufnahme verschoben
+		--> Interline Transfer: jeder Pixel hat einen benachbarten abgeschatteten
+			Pixel, sodass jeder Pixel nach der Aufnahme verschoben wird
+		--> Frame Interline Transfer-CCD: Kombination aus Frame & Interline
+		--> heute häufigste Bauart: Interline Transfer CCD-Sensoren
+	-> Blooming & Smearing als potentielle Probleme mit CCD-Sensoren
+>>>	-> Vorteile & Nachteile!
+>>> - CMOS-Sensoren
+	-> ursprünglich für Logik-Schaltkreise entwickelt
+	-> Unterschied zu CCD: jeder Pixel besitzt einen Schalter-Transistor
+	-> ermöglicht das Auslesen jedes einzelnen Pixels 
+		--> nicht wie bei CCDs, bei denen Reihen von Pixeln über den 
+			Sensor verschoben und ausgelesen werden
+		--> erst mit Active Pixel Sensoren wurden CMOS konkurrenzfähig: jede Fotodiode besitzt damit nicht nur einen Schalter zum Auslesen, sondern auch einen Transistor zur Verstärkung
+	-> einzelne Linse vor Sensor hat Licht gebündelt, sodass CMOS sukzessiv
+		CCD-Sensoren verdrängt haben
+>>> - Farbaufnahmen:
+	-> CCD und CMOS per se nicht spektral empfindlich
+	-> Farbabbildung analog zum menschlichen Auge (Trennung RGB) benötigt
+	-> Filter werden benötigt
+	-> Option 1: Licht wird durch Prismen gebrochen & 3 Sensoren (jew. R,
+		G und B) werden angebracht und ausgewertet
+		--> Problem: sehr teuer
+	-> Option 2: jedes Pixel bekommt einen Farbfilter & jedes Pixel bekommt
+		nur einen Auszug des Lichts
+>>>		--> durchgesetzt: Bayer-Filter bzw. -Sensor
+			--> 4 Pixel werden zusammengefasst: 2 grüne, 1 rot, 1 blau
+			--> Standardanordnung, da menschliches Auge für grünes Licht empfindlicher
+			ist
+			--> dadurch entsteht Mosaik-artiges Bild
+			--> Demosaicing rechnerisch: Interpolation mithilfe der 
+			benachbarten Pixel, um korrekte Farbinformationen 
+			des jew. Pixels zu berechnen
+>>>		--> Vorteil: 1 Sensor, der mit einer Belichtung die kompletten 
+			Farbinformationen liefert; nicht mehr Fläche wird benötigt als 
+			reine SW-Aufnahmen
+>>>		--> Nachteile: pro Pixel kommen nur ca. 30 % der Lichtinformationen an;
+			liefern nicht die gleiche Detailauflösung wie monochrome Sensoren
+- Andere Varianten:
+	-> Backside Illuminated Sensor: Umdrehen von Substrat und Elektronik
+	-> Foveon-Sensor: je nach Lichtwellenlänge dringen Spektralbereiche
+		des Lichtes unterschiedlich tief in den Sensor ein
+		--> Berechnung des Farbwertes anhand der Eindringtiefe da
+		--> blau: d sehr niedrig
+		--> grün: d mittel
+		--> rot: d höher bis sehr hoch
+		--> keine Interpolation benötigt, jede Fotodiode kann für jede 
+			Farbe genutzt werden, höhere Auflösung
+		--> Sensor ist nicht anfällig für Moire! :-)
+			Moire = Wechselwirkung zwischen Bayer-Filter und Motiv-
+				eigenschaften (regelmäßige Gitterlinien bspw.)
+		--> Nachteile: Absorption verhindert, dass komplette Lichtmenge durchtritt
+- Wichtig:
+	-> Unterschiede Foveon Vs. Bayer-Filter
+	-> Was ist BIS?
+	-> Vor- und Nachteile der Sensoren
+- Fuji X-Trans-Sensor:
+	-> andere Anordnung als Bayer-Filter
+	-> mehr Auflösung, weniger anfällig für Moire, entspricht mehr dem 
+		menschlichen Auge
+- Sensorgröße, Sensorauflösung, Pixel-Pitch
+	-> technische Kenngrößen für Sensoren
+	-> Sensorgröße als Bruchteil eines Zolls
+	-> Auswirkungen Sensorgröße - Bildqualität
+	-> Auswirkungen Sensorgröße - Bildausschnitt
+		--> kleinerer Sensor = kleinerer Bildausschnitt
+		--> wenn kleinerer Ausschnitt auf Vollformat vergrößert wird, 
+			wirkt das wie mit einem Teleobjektiv
+>>>	-> Auswirkungen Sensorgröße - Brennweitenangabe
+		--> Brennweite = Größe des Bildausschnitts
+		--> Crop-Factor = Umrechnung der Brennweite kleinerer Sensoren
+			auf Vollbild Kleinformat (Crop-Factor setzt Brennweiten in
+			Beziehung)
+		--> Abweichung der Sensorgröße vom Kleinbildformat hat Änderung
+			des Bildausschnitts zur Folge
+		--> Referenz ist die Kleinbild Vollformat
+		--> Normfaktor für Crop Factor ist Kleinbildsensor
+		--> Beispielrechnung muss sitzen! Siehe Skript 1!
+		--> Crop-Factor * Brennweite d. kleineren Sensors = äqu. Brennweite 
+				der Kleinbild Vollformat
+	-> weitere Auswirkungen:
+		--> Gehäusegröße
+		--> Schärfentiefe
+		--> Beugungsunschärfe
+	-> alles in allem: Sensorgröße ist extrem wichtig!
+	-> Anzahl der Pixel ist nicht entscheidend, da viele Pixel auf kleiner
+		Fläche dazu führen, dass die einzelnen Pixel kleiner sind
+		--> damit wird pro Pixel weniger Licht eingefangen, der Rauschabstand
+			wird kleiner
+>>> - Kamerakomponenten mit Beschreibung, Funktionen, etc.
+	-> siehe Skript 1; sollte auswendig sitzen
+>>> - Dateiformate
+	-> nicht-komprimierte Formate: Auswertung der vollständigen 
+		Sensor-Informationen
+		--> Daten der Sensoren werden komplett ausgelesen
+		--> Helligkeitsstufen der einzelnen Farbpixel mit 14 Bit pro Farbkanal
+		--> allerdings sehr große Dateien, bis zu 70 MB und mehr
+		--> verlustfreie Kompressionen von RAW-Formaten: Umstellung auf 
+			2/3 der Originalgröße
+		--> meist proprietär: können nur von Software des Kamera-Herstellers 
+			oder per Plugin mit gängiger Software verarbeitet werden
+		--> nur RAW-Datei ist zweifelsfreier Nachweis der Urheberschaft eines
+			digitalen Fotos
+	-> komprimierte Formate: Bilder werden im Datenumfang reduziert 
+		und dann gespeichert
+		--> bekanntestes: JPEG
+		--> mehrere Komprimierschritte
+			---> Reduzierung der Farbtiefe auf 8 Bit je Farbe, d.h. gesamt 
+					24 Bit
+			---> Umrechnung in anderes Farbsystem
+			---> Zusammenfassung, math. Operationen, Rundung
+			---> Vereinfachung der Schreibweise
+			---> erst dann folgt Speicherung
+	-> HEIF-Format:
+		--> komprimiertes Format (verlustfrei)
+		--> aber mit 16 Bit Farbtiefe
+		--> auch als Container-Format geeignet
+		--> höhere Kompressionsrate als bei JPEG
+>>> - Kameratypen-Einteilung
+	-> v.a. Aufbau Spiegelreflex
+
+## Skript 2
+>>> - Methoden der Bildgestaltung
+>>>	-> Stilmittel für Bildausschnitt und Komposition (Folie 26ff.)
+>>>	-> Blendeneinstellung (Folie 46ff.)
+>>>	-> Belichtungszeit (Folie 53ff.)
+>>>		--> v.a. Rolling Shutter Effekt = geometrische Verzerrungen bei zeilenweisem Auslesen von CMOS-Sensoren, wenn ein sich bewegendes Objekt eingefangen werden soll 
+>>>		--> Schärfentiefe
+		--> Bewegungsunschärfen
+	-> Empfindlichkeit bzw. Verstärkung (Folie 64ff.)
+- Fokus: Steuerung Fokus
+- Bildfehler und deren Korrektur
+	-> Objektivfehler (Verzeichnung, Vignettierung, Chrom. Aberrationen)
+	-> Sensorgrenzen: Rauschen bei zu wenig Licht, Sättigung und Detailverlust bei Überbelichtung
+- Chrom. Aberrationen:
+>>>	-> Korrektur durch achromatische oder apochromatische Linsen
+>>>	-> ED-Linsen: Linsen aus Glas mit "extra low dispersion"
+- Autofokus
+>>>	-> Phasenvergleich: Vor Auslösung wird Licht durch Obj. über einen Hilfsspiegel auf mind. zwei gegeneinander versetzte Sensoren geschickt
+		--> dadurch kann nicht nur festgestellt werden, dass der Fokus nicht richtig ist, sondern auch in welche Richtung nachjustiert werden muss (d.h. Richtung & Betrag: näher ran od. weiter weg)
+		--> aber die Fokussierung findet nicht auf dem Hauptsensor, sondern auf Hilfssensoren statt
+>>>	-> Kontrast-Autofokus: Messung von Kontrast an Objektkanten; sobald Kontrast-Maximum gefunden ist, wird an den Fokus-Punkt zurückgegangen, wenn sich nach dem Maximum der Kontrast in die entgegensetzte Richtung wieder verringert
+		--> keine Kalibrierung nötig, Messung dauert aber länger
+		--> nicht möglich bei schlechten Lichtverhältnissen
+		--> ebenfalls nicht eingesetzt bei Landschafts-, Makro- od. Astro-Fotografie
+>>> - Belichtungsautomatik:
+	-> Zeitvorwahlautomatik S
+	-> Blendenvorwahlautomatik A
+	-> Programmautomatik P
+	-> verschiedene Messmethoden:
+		--> Matrix- / Mehrfeldmessung
+		--> Spot-Messung
+		--> Mittenbetonte Integralmessung
+	-> Bei der Belichtung: Es wird gemittelt, sodass der Sensor ein gemitteltes Grau mit 18% Intensität aufnimmt (da dann nach oben und unten gleicher Spielraum besteht)
+- Bildstabilisatoren
+- wichtig: Autofokus-Systeme und Belichtungsautomatiken stichpunktartig erklären
+
+## Skript 3
+- Transformation: Änderung auf Strukturebene der Pixel
+- Weißabgleich: Korrektur der von der Kamera eingestellten Farbtemperatur
+- Sättigung: Wahrgenommene Farbstärke
+- Farbmanagement
+	-> ca. 20 Mio. wahrnehmbare Farbtöne, die von allen Menschen nahezu gleich wahrgenommen werden
+	-> darauf basierend Farbmodell: CIE Farbraum (additiv)
+		--> Farbraum aus x-, y- und z-Koordinate
+		--> x+y+z=1=r+g+b
+		--> Da Helligkeit=1 sich aus den 3 Farben zusammensetzen lässt, kann b=z weggelassen werden; kann aus Differenz aus (x+y)-1 rekonstruiert werden
+		--> weiß: x=y=z=0,33
+		--> Darstellung: CIE-Normfarbtafel
+>>>	-> für technische Geräte: Standard des techn. darstellbaren Farbraums 1996 festgelegt
+		--> sRGB
+		--> 3 Koordinaten im Farbraum + Weißpunkt
+		--> kleinster gemeinsamer Nenner für alle Online-Farbprodukte
+>>> -> Kalibrierung
+>>>		--> Hardwarekalibrierung vs. Softwarekalibrierung
+- subtraktives Farbmodell CYMK:
+	-> die Farben werden voneinander abgezogen, um weiß zu erzeugen
+	-> Papier ist weiß; zum schwarz hin werden die Farben hinzugefügt
+	-> Standard für Printmedien
+- Konvertierung von sRGB in CYMK über Konvertierungsprofile
+	= Ausgleich von Fehlern, die bei der Konvertierung von sRGB und CYMK auftreten
+	-> ISO-Profile: International Standardization Organisation
+	-> ICC-Profile: International Color Consortium
+	-> SWOP-Profile gemäß Specifications for Web Offset Publications
+>>>	-> Bsp. nennen!
+=> aktuellen Stand des Skriptes vom BA-Server holen!
+- Metadaten und Standards:
+	-> EXIF: techn. Daten
+	-> IPTC: Urheberrechtliche Angaben (Kontakt, Ansprechpartner)
+>>>	-> erklären können!
+>>> - Bildverwaltung:
+	-> Grundfunktionen: Archivieren, Verwalten, wiederfinden, Bilddaten anpassen, etc.
+	-> Metadatenformate & was wird dort hinterlegt (EXIF, IPTC)

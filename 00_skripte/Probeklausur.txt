@@ -1,0 +1,138 @@
+# Aufgabe 1
+- Meilensteine der Entwicklung:
+1) Daguerreotypie
+	-> Erfinder: Louis Daguerre
+	-> lichtempfindliche Substanz: Silberiodid auf Kupferplatte hinter Glas
+2) Kalotypie
+	-> Erfinder: Henry Talbot
+	-> Silberiodid auf Papier
+
+# Aufgabe 2
+- Die Funktionsweise lichtempfindlicher Metalle und Halbleiter beruht auf dem
+	inneren bzw. äußeren Photoelektrischen Effekt
+- innerer Photoelektrischer Effekt: 
+	-> durch Auftreffen von Photonen werden Elektronen in ein Leitungsband angehoben,
+		sodass der elektrische Widerstand des Halbleiters reduziert wird; damit wird der HL
+		elektrisch leitfähig
+- äußerer photoelektrischer Effekt:
+	-> durch das Auftreffen von Photonen auf Metallen werden Elektronen aus dem Metall
+		herausgelöst, sodass freie Ladungsträger entstehen; diese 
+		können sich an der Oberfläche sammeln
+- in Bildaufnahmeröhren eingesetzte Stoffe:
+	-> Mosaik aus Silber und Cäsium
+	-> Selen
+
+# Aufgabe 3
+- Typen von Bildsensoren in Kameras:
+1) CMOS: Complementary Metal Oxide Semiconductor
+2) CCD: Charge Coupled Device
+
+# Aufgabe 4
+- Fill Factor = Anteil der lichtempfindlichen Fläche an der Gesamtfläche des Sensors
+	-> d.h. dass der Fill Factor beschreibt, welcher Anteil des Sensors lichtempfindlich ist
+- Je höher der Fill Factor eines Sensors, desto besser, da bei höherem Fill Factor mehr
+	Photonen vom Sensor aufgenommen werden können; damit stehen prinzipiell erstmal mehr 
+	Bildinformationen zur Verfügung (d.h. hohe Lichtempfindlichkeit & wenig Rauschen)
+- Vor jedem Pixel eines Sensors kann eine Microlinse angebracht werden
+	-> Damit wird eine Fokussierung des Lichts auf den Sensor erreicht, sodass ein geringerer 
+		Fill Factor zumindest teilweise ausgeglichen werden kann
+	
+# Aufgabe 5
+- verschiedene Möglichkeiten zur Separierung des Lichtes in der Kamera oder im Sensor:
+- Option 1: Licht wird durch Prismen gebrochen & von 3 Sensoren (einer pro Farbe) aufgenommen
+	-> v.a. in hochwertigen Video-Kameras und Kameras für wissenschaftliche Zwecke, da sehr teuer	
+- Option 2: jedes Pixel bekommt einen Farbfilter, sodass von jedem Pixel nur ein Bruchteil des Lichts aufgenommen wird
+	-> v.a. in Endverbraucher-Kameras (Consumer- und Profikameras)
+	
+# Aufgabe 6
+- Anordnung der Farbfilter: Bayer-Filter
+	-> die Informationen von 4 Pixeln werden zusammengefasst
+	-> 2 Pixel werden mit einem Grün-Filter ausgestattet und jeweils 1 Pixel mit Rot bzw. blau
+	-> damit wird die Verteilung der Sinneszellen im menschlichen Auge nachempfunden
+- Vorteile:
+	-> damit werden Farbfotos von einem einzelnen Sensor ermöglicht
+	-> außerdem benötigen Farbsensoren mit Bayer-Filter nicht mehr Platz als monochrome Sensoren mit gleicher Pixelanzahl
+- Nachteile:
+	-> die Filter lassen nur etwa 30% des Lichts passieren (= reduzierte Quanteneffizienz)
+	-> Farbsensoren mit Bayerfilter liefern nicht die gleiche Detailauflösung wie monochrome Sensoren
+	
+# Aufgabe 7
+- Bayer-Filter: jedes Pixel kann nur einen Teil der Bildinformationen liefern
+- Vorgang der Vervollständigung der Bildinformationen = Demosaicing
+	-> dabei werden die Farbinformationen des jew. Pixels anhand der Farbinformationen der umliegenden Pixel interpoliert	
+
+# Aufgabe 8
+- Sensorgröße
+	-> wird als Sensordiagonale gemessen
+	-> Einheit: Zoll bzw. Bruchteil eines Zolls 
+	-> 1 Zoll bedeutet dabei ca. 16,4 mm statt der üblichen 25,4 mm (d.h. nur ca. 2/3 nutzbar)
+- Vollformatsensor
+	-> Größe: 36 mm x 24 mm
+	-> abgeleitet von der Sensorgröße der Ur-Leica, einer Kleinbildkamera aus dem Jahr 1914
+
+# Aufgabe 9
+- Die erreichbare Bildqualität eines Sensors ist von der Fläche der einzelnen Pixel abhängig
+	-> da mit größerem Pixelpitch mehr Photonen aufgenommen werden können, womit letztendlich mehr Bildinformationen zur Verfügung stehen
+- Auf einer kleinen Sensorfläche können entweder viele kleine Pixel oder wenig große Pixel angebracht werden
+	-> dadurch können weniger Photonen aufgenommen werden, obwohl das thermische Grundrauschen gleichbleibt oder sogar steigt
+	-> damit entstehen in der Konsequenz Bilder mit hohem Bildrauschen, falls die Lichtverhältnisse nicht ausgezeichnet sind
+
+# Aufgabe 10
+Crop-Factor
+a) normiert auf einen Vollformatsensor
+b) 400 mm * 1,5 = 600 mm äquivalente Brennweite 
+c) Mit Weitwinkelobjektiv verkleinert sich der Bildausschnitt
+
+# Aufgabe 11
+- RAW
+	-> unkomprimiertes Dateiformat
+	-> alle Bildinformationen vom Sensor werden gespeichert, d.h. für jedes Sensorpixel wird der vom Bildprozessor ausgegebene Wert gespeichert
+	-> meist proprietär
+- JPG
+	-> komprimiertes Datenformat
+	-> vor Speicherung findet eine Datenreduzierung der Bildinformationen statt
+	-> häufig sequentielle Komprimierung
+		=> Reduzierung der Bilddaten auf 8 Bit je Farbe
+		=> Umrechnung von RGB zu YCrCb
+		=> Zusammenfassung zu Pixelblöcken, mathematische Operationen, Rundungen (Quantisierung), Vereinfachung der Datenschreibweise
+	-> dadurch allerdings spürbare Qualitätsverluste
+- für professionelle Qualität und Nachweis der Urheberschaft: RAW-Formate
+
+# Aufgabe 12
+- Steuerung der Belichtung einer Aufnahme durch
+1) Blendeneinstellung
+2) Belichtungszeit
+3) Empfindlichkeit
+-> Empfindlichkeit wirkt sich nicht auf die Lichtmenge bei Aufnahme aus
+
+# Aufgabe 13
+- Chromatische Aberrationen: unerwünschte Farbränder an Objektgrenzen
+- Bildfehler aus der Klasse der Objektivfehler
+- ChromAberr entstehen dadurch, dass Licht unterschiedlicher Wellenlängen unterschiedlich gebrochen wird
+	-> dadurch fokussieren sich die Lichtanteile unterschiedlicher Wellenlängen nicht auf einem Punkt auf der Mittelachse
+	-> dadurch haben die unterschiedlichen Lichtfarben unterschiedliche Brennpunkte auf der Retina
+- laterale Aberrationen: rot und grün sind nicht konvergent
+- longitudinale Aberrationen: blau nicht in der Fokusebene
+- Korrektur: durch achromatische oder apochromatische Linsen
+	-> achromatisch: Korrektur für 2 Wellenlängen
+	-> Apochromatisch: Korrektur für 3 Wellenlängen
+	-> Linsen bestehen aus Glas mit "extra low dispersion", also geringer Lichtbrechung
+	
+# Aufgabe 14
+- Autofokus-Verfahren:
+	-> Phasenvergleichsautofokus
+	-> Kontrastautofokus
+- Phasenvergleichsautofokus ist schneller, da die Fokussierung über 2 zusätzliche Hilfsspiegel erfolgt
+	-> damit kann die richtige Fokussierung theoretisch direkt und exakt angefahren werden und muss nicht über mehrere Messungen hinweg gemessen werden
+- Verwendung:
+	-> Phasenvergleichsautofokus: Spiegelreflexkameras
+	-> Kontrastautofokus: spiegellose Systemkameras
+
+# Aufgabe 15
+- Standard-Farbraum für die elektronische Bildbearbeitung: sRGB
+a) Kalibrierung: Justierung von Geräten, sodass die Abweichung vom Standard minimiert wird
+	-> Softwarekalibrierung: Verwendung eines als Datei gespeicherten Korrekturprofils
+	-> Hardwarekalibrierung: Messung & Nachjustierung am Monitor selbst
+b) Arbeit mit Konvertierungsprofilen
+	-> Damit sollen Fehler ausgeglichen werden, die bei der Konvertierung von sRGB in CYMK auftreten können
+	-> unterschiedliche Arten (ISO-Profile, ICC-Profile, Swop-Profile)
